@@ -1,0 +1,51 @@
+mysql> create table scbiao(user_ID varchar(20) unique not null,
+    -> name varchar(20) not null,
+    -> price decimal(10,2) not null default 0.00,
+    -> collect char default '1');
+Query OK, 0 rows affected (0.09 sec)
+mysql>  insert into scbiao(user_ID,name,price)values("zhangsan_ID","taideng",10.89),
+    -> ("lisi_ID","chuangdian",34.78),
+    -> ("wangwu_ID","chuangdian",34.78),("sanqi_ID","diannao",5400);
+Query OK, 4 rows affected (0.06 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from scbiao;
++-------------+------------+---------+---------+
+| user_ID     | name       | price   | collect |
++-------------+------------+---------+---------+
+| lisi_ID     | chuangdian |   34.78 | 1       |
+| sanqi_ID    | diannao    | 5400.00 | 1       |
+| wangwu_ID   | chuangdian |   34.78 | 1       |
+| zhangsan_ID | taideng    |   10.89 | 1       |
++-------------+------------+---------+---------+
+4 rows in set (0.00 sec)
+
+mysql>  insert into scbiao(user_ID,name,price)values("Jenny_ID","fengdi",99.79);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from scbiao;
++-------------+------------+---------+---------+
+| user_ID     | name       | price   | collect |
++-------------+------------+---------+---------+
+| Jenny_ID    | fengdi     |   99.79 | 1       |
+| lisi_ID     | chuangdian |   34.78 | 1       |
+| sanqi_ID    | diannao    | 5400.00 | 1       |
+| wangwu_ID   | chuangdian |   34.78 | 1       |
+| zhangsan_ID | taideng    |   10.89 | 1       |
++-------------+------------+---------+---------+
+5 rows in set (0.00 sec)
+mysql> update scbiao set scbiao.collect='0' where scbiao.user_ID='sanqi_ID';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from scbiao;
++-------------+------------+---------+---------+
+| user_ID     | name       | price   | collect |
++-------------+------------+---------+---------+
+| Jenny_ID    | fengdi     |   99.79 | 1       |
+| lisi_ID     | chuangdian |   34.78 | 1       |
+| sanqi_ID    | diannao    | 5400.00 | 0       |
+| wangwu_ID   | chuangdian |   34.78 | 1       |
+| zhangsan_ID | taideng    |   10.89 | 1       |
++-------------+------------+---------+---------+
+5 rows in set (0.00 sec)
