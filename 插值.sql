@@ -1,11 +1,8 @@
--- use hehe1;
--- insert into user(account ,password) values('zhangsan',md5('123456')), ('wangwu',md5('345678'));
--- select * from user;
--- use hehe1;
--- insert into equip(name,price,user_id) values
--- ('huwan',12,1),('shoutao',13,1),('manzi',16,2),('xiezi',18,2);
--- select * from equip;
--- use hehe1;
--- select *  from equip where user_id=1;
-use hehe1;
-select * from equip where equip.user_id in(select user_id from user);
+-- use hehe2;
+-- insert into momo(name_id,sex,tell) values('wangsan',1,138768923),('zhangwei',0,143987612),('xiaoming',1,132456798);
+-- use hehe2;
+-- insert into xihuan(like_name,name_id,like_weixing) values('lili','zhangwei','1werft'),('hjik','zhangwei','olkinh'),('hjik','xiaoming','olkinh'),('hjik','wangsan','olkinh'),('hjik','wangsan','olkinh');
+-- use hehe2;
+-- select * from momo;
+use hehe2;
+select * from xihuan;
